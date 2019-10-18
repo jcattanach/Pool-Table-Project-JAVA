@@ -50,7 +50,7 @@ public class Main {
                         System.out.println(choice + " is not a valid menu option.");
                 }
             } catch (java.util.InputMismatchException e){
-                System.out.println("Not a valid menu choice");
+                System.out.println("Not a valid option");
                 scanner.nextLine();
             }
 

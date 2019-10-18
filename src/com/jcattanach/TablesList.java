@@ -27,10 +27,15 @@ public class TablesList {
 
     public void showOpenTables(){
         System.out.println("******* OPEN TABLES ********");
+        int checker = 0;
         for (int i = 0; i < this.poolTableList.size(); i++) {
             if(!poolTableList.get(i).getOccupied()){
                 System.out.println(poolTableList.get(i).toString());
+                checker++;
             }
+        }
+        if(checker == 0){
+            System.out.println("All tables are currently occupied");
         }
     }
 
@@ -44,12 +49,16 @@ public class TablesList {
             }
         }
         if (checker == 0){
-            System.out.println("All tables open");
+            System.out.println("All tables are currently open");
         }
     }
 
     public void changeStatus(int tableNum){
+        try {
 
-        poolTableList.get(tableNum - 1).setOccupied(!poolTableList.get(tableNum - 1).getOccupied());
+            poolTableList.get(tableNum - 1).setOccupied(!poolTableList.get(tableNum - 1).getOccupied());
+        } catch (java.lang.IndexOutOfBoundsException e){
+            System.out.println(tableNum  + " is not a valid table number.");
+        }
     }
 }

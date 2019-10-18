@@ -3,6 +3,7 @@ package com.jcattanach;
 import java.util.ArrayList;
 
 public class TablesList {
+
     private ArrayList<PoolTable> poolTableList;
 
     public TablesList() {
@@ -35,14 +36,20 @@ public class TablesList {
 
     public void showOccupiedTables(){
         System.out.println("******* OCCUPIED TABLES ********");
+        int checker = 0;
         for (int i = 0; i < this.poolTableList.size(); i++) {
             if(poolTableList.get(i).getOccupied()){
                 System.out.println(poolTableList.get(i).toString());
+                checker ++;
             }
+        }
+        if (checker == 0){
+            System.out.println("All tables open");
         }
     }
 
     public void changeStatus(int tableNum){
+
         poolTableList.get(tableNum - 1).setOccupied(!poolTableList.get(tableNum - 1).getOccupied());
     }
 }
